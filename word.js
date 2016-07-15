@@ -32,3 +32,5 @@ function word(currentWord) {
 
 var w = new word("WORD");
 w.log();
+
+module.exports = word;
