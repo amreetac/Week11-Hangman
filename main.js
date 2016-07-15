@@ -1,35 +1,30 @@
-Main js should do the following:
+/****
+/* Contains the logic of your app. Running it in Terminal/Bash 
+/* will start the game.  The app should end when a player 
+/* guesses the correct word or runs out of guesses.
 
-With inquirer, it should Welcome you to Hangman
+var game = require('./game.js');
+var letter = require('./letter.js');
+var word = require('./word.js');
 
-Please select your first letter
-_ _ _
+/*/
 
-Input- O  
+/****
+/* Objects: main, game, word, letter
 
-_ O _
+Object: 
+	main
+Attributes:
+	maxGames // total number of games to play
+	numWins // total number wins
+	prompt // use inquirer.js
+Methods:
+	welcomePrompt() // Welcome to hangman, show options:
+					// New Game, Get Stats, Quit
+	start()	// Called When New Game is selected, will create a
+			// new game, initialize it, and play until win/loss
+	getStats() // Display the current total wins/losses of all the games played.
+	quit() // Display the final stats, leave the game.
 
-Guesses so far: O
 
-Guess your next letter 
-
-Input- D 
-
-Guesses so far: O, D
-
-D O _
-
-Guess your next letter
-
-Input -L 
-
-Wrong letter!
-
-Guesses so far: O, D, L
-
-Input- G
-
-D O G
-
-Correct you have won!
 
