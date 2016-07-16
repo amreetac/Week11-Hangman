@@ -16,15 +16,20 @@ Methods:
 			// guesses allowed
 	takeAGuess() // Prompt User for a new letter to guess.  Call
 				 // word.guessAletter() with the letter entered
-				 // Returns true if found, otherwise
+				 // Returns true if found, otherwise false
 */
+
+debugOn = true;
+
+var inquirer = require('inquirer');
 var word = require('./word.js');
 
-function game(guessesAllowed) {
-
-	this.guessesAllowed = guessesAllowed;
-	this.guessesSoFar = 0;
-	this.guesses = "";
+function game(guessesAllow) {
+	//attributes
+	this.guessesAllow = guessesAllow;
+	this.guessesSoFar = "";
+	this.wrongGuesses = 0;
+	this.Correct = 0;
 
 	this.wordlist = ["javascript", "nodejs", "mysql", "mongodb", 
 		"webdesign", "coder"];
@@ -33,23 +38,73 @@ function game(guessesAllowed) {
 
 	this.word = new word(this.wordlist[random]); 
 
+	//methods
 	this.play = function() { 
-		console.log("game.play()");
-	}
+		console.log("NEW GAME!");
 
-	this.takeAGuess = function() {
-		console.log("game.takeAGuess()");
-	}
+		var self = this;
+
+    //RUNS INQUIRER AND ASKS THE USER A SERIES OF QUESTIONS WHOSE REPLIES ARE STORED WITHIN 
+    //THE VARIABLE answers INSIDE OF THE .then STATEMENT.
+    inquirer.prompt([{
+    type: 'input',
+    message: 'Hello, what is your guess?',
+    name: 'letter'
+    }]).then(function(input) {
+
+    	if (debugOn == true) {
+    		console.log("Then function from prompt");
+    	}
+
+
+    	// Check the index of the letter, if it is correct then play. 
+  		if (self.guessesSoFar.indexOf(input.letter) >=0) {
+  			self.play();
+  		//console.log("letter1");
+  			return;
+  		}
+  		//console.log("letter2");
+  		self.guessesSoFar += input.letter;
+
+
+  		var count= self.word.hasLetter(input.letter); //# times it found the letter
+
+  		//self.Correct += count; 
+
+  		self.word.display();
+
+  		if (count > 0) {
+  			self.Correct += count;
+  		} else {
+  			self.wrongGuesses++;
+  		}
+
+  		if (self.Correct == self.word.length) {
+  			console.log ("You have won the game!");
+  		}
+  		else if (self.wrongGuesses < self.guessesAllow) {
+  				self.play();
+  			}
+  		else {
+  			console.log("You lost!");
+  		}
+        		
+    })
+
+}
 
 	this.log = function() {
-		console.log("game.guessesAllowed: " + this.guessesAllowed);
+		console.log("game.guessesAllow: " + this.guessesAllow);
 		console.log("game.guessesSoFar: " + this.guessesSoFar);
-		console.log("game.guesses: ", this.guesses);
+		console.log("game.wrongGuesses: "+ this.wrongGuesses);
 
 		this.word.log();
 	}
 }
 
+
+
 module.exports = game;
 var g = new game(10);
-g.log();
+//g.log();
+g.play();

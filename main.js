@@ -1,3 +1,9 @@
+/*var game = require('./game.js');
+
+
+*/
+
+
 /****
 /* Contains the logic of your app. Running it in Terminal/Bash 
 /* will start the game.  The app should end when a player 
@@ -14,6 +20,10 @@ var word = require('./word.js');
 
 Object: 
 	main
+
+
+
+
 Attributes:
 	maxGames // total number of games to play
 	numWins // total number wins
@@ -25,6 +35,31 @@ Methods:
 			// new game, initialize it, and play until win/loss
 	getStats() // Display the current total wins/losses of all the games played.
 	quit() // Display the final stats, leave the game.
+*/
+/*
+function main ()
+{
+
+this.game = new game(10);
+
+}
 
 
+main();
 
+*/
+
+/*
+inquirer.prompt([{
+    type: 'input',
+    message: 'Hello, what is your guess?',
+    name: 'letter'
+    }]).then(function(input) {
+
+    	if (debugOn == true) {
+    		console.log("Then function from prompt");
+    	}
+
+}
+
+*/

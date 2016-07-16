@@ -1,44 +1,37 @@
 /******
-/* Should contain all of the methods which will check 
-/* the letters guessed versus the random word selected.
+/* Letter.js controls whether or not a letter appears as a 
+/* "_" or as itself on-screen.
 /*/
-/*
-var rw = require('./game.js');
-
-function word() {
-//	var randWord = new randomWord();
-//	var randWord = "This is a test";
-	console.log(rw);
-	var randWord = rw.game.getWord();
-	var guessword = new Array(randWord.length);
-
-	for (var i = 0; i < randWord.length; i++){
-		guessword[i] = '_';
-	}
-
-	console.log(randWord);
-	console.log(guessword);
-}
-
-w = new word();
-*/
-
 
 //Start of Letter object code
 
-function letter (actualLetter) {
-
-	this.isDisplayed = false;
-	this.blank = "_";
+function letter(actualLetter) {
+	//atributes
 	this.letter = actualLetter;
+	this.charDisplayed = " _ "; // blank until correct
 
-	this.log = function() {
-		console.log(this.blank + ", " +
-					this.letter);
+	//methods
+	// If the character entered is equal to this letter then
+	// set the character displayed equal to the letter and
+	// return true.  Otherwise, leave the charDisplayed blank.
+	this.isEqual = function(charGuessed){
+		console.log("letter.isEqual()");
+
+		if (charGuessed === this.letter) {
+			this.charDisplayed = this.letter;
+			return true;
+		}
+
+		return false;
 	}
 
 	this.display = function() {
-		console.log(this.isDisplayed ? this.letter : this.blank);
+		console.log(this.charDisplayed);
+	}
+
+	this.log = function() {
+		console.log(this.charDisplayed + ", " +
+					this.letter);
 	}
 }
 
