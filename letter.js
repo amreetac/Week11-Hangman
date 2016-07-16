@@ -15,7 +15,7 @@ function letter(actualLetter) {
 	// set the character displayed equal to the letter and
 	// return true.  Otherwise, leave the charDisplayed blank.
 	this.isEqual = function(charGuessed){
-		console.log("letter.isEqual()");
+		//console.log("letter.isEqual()");
 
 		if (charGuessed === this.letter) {
 			this.charDisplayed = this.letter;

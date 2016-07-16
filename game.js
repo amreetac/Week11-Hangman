@@ -19,7 +19,7 @@ Methods:
 				 // Returns true if found, otherwise false
 */
 
-debugOn = true;
+debugOn = false;
 
 var inquirer = require('inquirer');
 var word = require('./word.js');
