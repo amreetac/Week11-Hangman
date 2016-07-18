@@ -1,11 +1,13 @@
 /*
+
+Initial Brainstorming
 Object: 
 	game
 Attributes:
 	wordList // list of words to choose from 
-	guessesAllowed // number of guesses allowed
+	guessesAllow // number of guesses allowed
 	guessesSoFar // number of guesses taken for this game
-	guesses // string of letters guessed
+	wrongguesses // string of letters guessed wrong. If a person guesses right, it doesn't penalize, so I'm only counting wrong guesses
 	word 	// word object to handle guesses and updates of the
 			// word to be displayed
 Methods:
@@ -19,7 +21,7 @@ Methods:
 				 // Returns true if found, otherwise false
 */
 
-debugOn = false;
+debugOn = false; //For debugging later on
 
 var inquirer = require('inquirer');
 var word = require('./word.js');
@@ -40,7 +42,7 @@ function game(guessesAllow) {
 
 	//methods
 	this.play = function() { 
-		console.log("NEW GAME!");
+		//console.log("NEW GAME!"); Done for testing purposes.
 
 		var self = this;
 

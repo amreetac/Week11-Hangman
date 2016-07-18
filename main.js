@@ -1,28 +1,24 @@
-/*var game = require('./game.js');
+/*
 
-
+Here are various fragments of code I have tried to run on main at different times.
+As of now, the game works from game.js
 */
 
-
-/****
-/* Contains the logic of your app. Running it in Terminal/Bash 
-/* will start the game.  The app should end when a player 
-/* guesses the correct word or runs out of guesses.
+/*
 
 var game = require('./game.js');
 var letter = require('./letter.js');
 var word = require('./word.js');
 
-/*/
 
-/****
-/* Objects: main, game, word, letter
+
+
+/* Brainstorming of game 
+
+ Objects: main, game, word, letter
 
 Object: 
 	main
-
-
-
 
 Attributes:
 	maxGames // total number of games to play
@@ -40,7 +36,7 @@ Methods:
 function main ()
 {
 
-this.game = new game(10);
+this.game = new game(10);  Meant to run this for 10 times.
 
 }
 
